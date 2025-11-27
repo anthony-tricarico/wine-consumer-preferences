@@ -3,7 +3,7 @@
 
 # import necessary libraries
 library(pacman)
-p_load(ggplot2, readr, tidyr, tidyverse)
+p_load(ggplot2, readr, tidyr, tidyverse, latex2exp, mlogit)
 
 # import data
 df <- read_delim("data/CBC_Wine_data.csv", 
@@ -47,11 +47,48 @@ labels <- as_tibble(xtabs(as.numeric(choice) ~ label, df_chosen))
   # decrease the right margin to 0
   par(mar=c(5,4,3,0))
   # sequence of barplots to make
-  barplot(brands$n, main = "Distribution of choice ~ brands", names.arg = brands$Brands, ylim = c(0,5000))
-  barplot(type$n, main = "Distribution of choice ~ type", names.arg = type$Type, ylim = c(0,5000))
-  barplot(alcohol$n, main = "Distribution of choice ~ alcohol", names.arg = alcohol$Alcohol, ylim = c(0,5000))
-  barplot(age$n, main = "Distribution of choice ~ age", names.arg = age$Age, ylim = c(0,5000))
-  barplot(sweetness$n, main = "Distribution of choice ~ sweetness", names.arg = sweetness$Sweetness, ylim = c(0,5000))
-  barplot(labels$n, main = "Distribution of choice ~ labels", names.arg = labels$label, ylim = c(0,5000))
+  barplot(brands$n, main = "Distribution of choice ~ brands",
+          names.arg = brands$Brands, ylim = c(0,5000))
+  barplot(type$n, main = "Distribution of choice ~ type",
+          names.arg = type$Type, ylim = c(0,5000))
+  barplot(alcohol$n, main = "Distribution of choice ~ alcohol",
+          names.arg = alcohol$Alcohol, ylim = c(0,5000))
+  barplot(age$n, main = "Distribution of choice ~ age",
+          names.arg = age$Age, ylim = c(0,5000))
+  barplot(sweetness$n, main = "Distribution of choice ~ sweetness",
+          names.arg = sweetness$Sweetness, ylim = c(0,5000))
+  barplot(labels$n, main = "Distribution of choice ~ labels", 
+          names.arg = labels$label, ylim = c(0,5000))
+  #reset graphical parameters to default
+  par(mfrow=c(1,1))
+  par(mar=c(5,4,4,2) + 0.1) # values taken from documentation (see `?par`)
 }
 
+# check how many respondents showed signs of survey fatigue or how many
+# chose always the same option among those available
+
+# check sd of alt variable for each resp.id
+check_attention <- df_chosen %>% 
+  group_by(resp.id) %>% 
+  summarize(alt_sd = sd(alt))
+
+quantile(check_attention$alt_sd)
+(box <- boxplot(check_attention$alt_sd,
+        main = TeX("Boxplot of \\sigma(alt) for chosen alternatives")))
+
+# as we can see from the boxplot there are four outliers. People with a very low
+# variability in their choices migth be subject to survey fatigue or might have
+# not considered at all the other options carefully.
+# Considered the very low number of people who exhibited this behavior we
+# can either drop them and exclude from further analysis or leave them in the
+# sample.
+
+######################### MODEL FITTING ################################
+
+df_model <- dfidx(df, idx = list(c("ques", "resp.id"), "alt"))
+
+df_model$choice <- as.logical(as.numeric(as.character(df$choice)))
+any(is.na(df_model$choice))
+
+# this does not work fix it
+m1 <- mlogit(choice ~ Type, data = df_model)
