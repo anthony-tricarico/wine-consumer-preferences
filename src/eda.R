@@ -19,8 +19,13 @@ summary(df)
 # are all encoded as characters. Better to turn them into factors.
 
 # convert specified variables to factors
-df <- df %>% 
-  mutate(across(Price:choice, as.factor))
+df <- df %>%
+  mutate(
+    across(Price:label, as.factor),
+    choice = choice == 1
+  )
+
+any(duplicated(df[c("resp.id", "ques", "alt")]))
 
 # number of unique participants
 length(unique(df$resp.id)) # 350 participants
@@ -82,13 +87,17 @@ quantile(check_attention$alt_sd)
 # Considered the very low number of people who exhibited this behavior we
 # can either drop them and exclude from further analysis or leave them in the
 # sample.
-
 ######################### MODEL FITTING ################################
 
-df_model <- dfidx(df, idx = list(c("ques", "resp.id"), "alt"))
+df_mlogit <- mlogit.data(
+  df,
+  choice  = "choice",     # logical variable: TRUE if the alternative was chosen
+  shape   = "long",       # data are in long format (one row per alternative)
+  alt.var = "alt",        # alternative identifier within each choice set
+  chid.var = "ques",      # choice situation (question ID)
+  id.var   = "resp.id"    # respondent ID
+)
 
-df_model$choice <- as.logical(as.numeric(as.character(df$choice)))
-any(is.na(df_model$choice))
+m1 <- mlogit(choice ~ Type, data = df_mlogit)
+summary(m1)
 
-# this does not work fix it
-m1 <- mlogit(choice ~ Type, data = df_model)
