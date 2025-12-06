@@ -1,9 +1,11 @@
-# eda.R
+# eda.R --- Max execution time: 5min (due to mixed models estimation)
 # ================ script for Exploratory Data Analysis =====================
-
+# set the maximum printable lines to 5000 so that longer summary outputs
+# can be printed to screen fully
+options(max.print = 5000)
 # import necessary libraries
 library(pacman)
-p_load(ggplot2, readr, tidyr, tidyverse, latex2exp, mlogit, MASS, lattice)
+p_load(ggplot2, readr, tidyr, tidyverse, latex2exp, mlogit, MASS, lattice, janitor)
 
 # import data
 df <- read_delim("data/CBC_Wine_data.csv", 
@@ -14,6 +16,8 @@ summary(df)
 # 6300 questions
 # also exactly 6300 1's in choice so we know no participant inadvertently selected
 # more than one option while taking the survey.
+# also, levels within attributes are balanced (they appear roughly the same
+# number of times)
 
 # price, brands, type, alcohol, age, sweetness, label, and choice 
 # are all encoded as characters. Better to turn them into factors.
@@ -25,13 +29,15 @@ df <- df %>%
     choice = choice == 1
   )
 
+# check to avoid duplication of records, should always return FALSE otherwise
+# model fitting steps will throw an error
 any(duplicated(df[c("resp.id", "ques", "alt")]))
 
 # number of unique participants
 length(unique(df$resp.id)) # 350 participants
 
 # check for missing data
-sum(is.na(df)) # complete dataset!
+sum(is.na(df)) # = 0: complete dataset.
 
 # filter for positive choices
 df_chosen <- df %>% 
@@ -71,7 +77,6 @@ labels <- as_tibble(xtabs(as.numeric(choice) ~ label, df_chosen))
 
 # check how many respondents showed signs of survey fatigue or how many
 # chose always the same option among those available
-
 # check sd of alt variable for each resp.id
 check_attention <- df_chosen %>% 
   group_by(resp.id) %>% 
@@ -85,18 +90,18 @@ quantile(check_attention$alt_sd)
 # variability in their choices migth be subject to survey fatigue or might have
 # not considered at all the other options carefully.
 # Considered the very low number of people who exhibited this behavior we
-# can either drop them and exclude from further analysis or leave them in the
-# sample.
+# leave them in the sample and proceed the analysis without dropping them.
+
 ######################### MODEL FITTING ################################
 
 # add a column (Price_eur) to represent price as a quantitative variable
-# the values are the upper-bound of those specified when carrying out the survey
+# the values are the mean of the ranges specified when carrying out the survey
 df <- df %>% 
   mutate(Price_eur = case_when(
-    Price == "Cheap" ~ 15,
-    Price == "Popular" ~ 20,
-    Price == "Premium" ~ 50,
-    Price == "Luxury" ~ 100,
+    Price == "Cheap" ~ mean(c(3,15)),
+    Price == "Popular" ~ mean(c(15,20)),
+    Price == "Premium" ~ mean(c(20,50)),
+    Price == "Luxury" ~ mean(c(50,100)),
   ))
 
 df_mlogit <- mlogit.data(
@@ -109,6 +114,7 @@ df_mlogit <- mlogit.data(
 )
 
 # explicitly assign reference level to each factor
+# this is useful to better understand contrasts and how to interpret coefficients
 df_mlogit$Price <- relevel(df_mlogit$Price, ref = "Cheap")
 df_mlogit$Brands <- relevel(df_mlogit$Brands, ref = "Cavit")
 df_mlogit$Type <- relevel(df_mlogit$Type, ref = "red")
@@ -151,7 +157,22 @@ lrtest(m3, m2)
 # explains a significant amount of variation in consumer choice compared to the
 # model which considers price a quantitative variable.
 
-# compute willingness to pay (?)
+# compute willingness to pay for selected attributes
+compute_WTP <- function(attribute_name) {
+  coefs <- coef(m3)
+  price_coef <- coefs["Price_eur"]
+  
+  WTP <- -coefs[attribute_name] / price_coef
+  print(paste("WTP of", attribute_name, "is", WTP))
+}
+
+# skip first coefficient since it is price
+for (name in names(coef(m3)[2:length(names(coef(m3)))])) {
+  compute_WTP(name)
+}
+# a negative WTP implies that consumers do not appreciate that specific level
+# of an attribute (compared to the baseline) and would be willing to accept it
+# (tolerate it) only if the price would be lower.
 
 # simulate preference shares
 predict.mnl <- function(model, data) {
@@ -179,35 +200,38 @@ attributes <- list(
 )
 all_designs <- expand.grid(attributes) 
 all_designs #all possible designs
+length(all_designs$Price) # 24576 possible profiles
 
 # sample 10% of total
-# TODO: understand if this is the right way to do this.
-# alternatively we could just decide on a number of different combinations
-# and select those manually instead of relying on pseudo-random sampling.
-
+# this is only done to not check each and every combination to determine
+# but still gives an idea of the preferred profiles in a competitive
+# market-share perspective.
 {
   # set seed for replication purposes
   set.seed(124)
-  subset_data <- slice_sample(all_designs, n = 20)
+  subset_data <- slice_sample(all_designs, prop = .1)
 }
 
-# check that there is at least one 
+# check that there is at least one for each level
 summary(subset_data)
 
 preds_ml2 <- predict.mnl(m2, subset_data)
-# as expected the total shares sum up to one
+# check: as expected the total shares sum up to one
 sum(preds_ml2$share)
 
 # view choices in descending projected market share order
-preds_ml2 %>% 
-  arrange(desc(share))
+# this is useful to make an example of a possible profile that
+# is more likely to be chosen by consumers
+(sorted_shares <- preds_ml2 %>% 
+  arrange(desc(share)))
 
+# TEST: sensitivity
 sensitivity.mnl <- function(model, attrib, base.data, competitor.data) {
   # Function for creating data for a preference share-sensitivity chart
   # model: mlogit object returned by mlogit() function
   # attrib: list of vectors with attribute levels to be used in sensitivity
   # base.data: data frame containing baseline design of target product
-  # competitor.data: data frame contining design of competitive set
+  # competitor.data: data frame containing design of competitive set
   data <- rbind(base.data, competitor.data)
   base.share <- predict.mnl(model, data)[1,1]
   share <- NULL
@@ -222,14 +246,36 @@ sensitivity.mnl <- function(model, attrib, base.data, competitor.data) {
 }
 
 base_data <- subset_data[1,]
-competitor_data <- subset_data[-1,]
+competitor_data <- subset_data[10,]
 
 (tradeoff <- sensitivity.mnl(m2, attributes, base_data, competitor_data))
-
-barplot(tradeoff$increase, horiz=FALSE, names.arg=tradeoff$level,
+base_data
+competitor_data
+{
+barplot(tradeoff$increase[1:11], horiz=FALSE, names.arg=tradeoff$level[1:11],
         ylab="Change in Share for the Planned Product Design", 
-        ylim=c(-0.1,0.11))
+        ylim=c(-0.2,0.11))
 grid(nx=NA, ny=NULL)
+
+barplot(tradeoff$increase[12:22], horiz=FALSE, names.arg=tradeoff$level[12:22],
+        ylab="Change in Share for the Planned Product Design", 
+        ylim=c(-0.2,0.11))
+grid(nx=NA, ny=NULL)
+
+barplot(tradeoff$increase[23:30], horiz=FALSE, names.arg=tradeoff$level[23:30],
+        ylab="Change in Share for the Planned Product Design", 
+        ylim=c(-0.2,0.11))
+grid(nx=NA, ny=NULL)
+}
+# plot interpretation: switching price from cheap to luxury, popular or premium
+# would reduce the market share
+# similar considerations apply to other share changes (La-Vis and Toblino reduce
+# shares, while Mezzacorona increases them)
+# importantly, the competitor data is passed to the function since competitive
+# analysis is done in relation to competitors in the market. These competitors
+# can alter the base share (the market share currently achieved),
+# and the change in share (how much market share can be acquired considering
+# the current competition in the market).
 
 # =============== FITTING MIXED MODELS ====================
 # fit sample model just to extract the name for random coefficients
@@ -247,6 +293,8 @@ m2_mixed <- mlogit(choice ~ Price + Brands + Type + Alcohol + Age + Sweetness + 
                    panel = TRUE,
                    rpar = rpar,
                    correlation = FALSE)
+# names(m2_mixed$rpar)
+# names(m2_mixed$rpar) <- janitor::make_clean_names(names(m2_mixed$rpar))
 # visual summary of distribution of random effects
 plot(m2_mixed)
 
@@ -268,20 +316,53 @@ m2_mixed_corr <- mlogit(choice ~ Price + Brands + Type + Alcohol + Age + Sweetne
                    rpar = rpar,
                    correlation = TRUE)
 
+summary(m2_mixed_corr)
 # looking at the covariance matrix of coefficients to understand the strength of
 # the correlation
 cov2cor(cov.mlogit(m2_mixed_corr))
 
 # we can test significant relationships as well by estimating standard errors
-summary(vcov(m2_mixed_corr, what = "rpar", type = "cor"))
+s <- summary(vcov(m2_mixed_corr, what = "rpar", type = "cor"))
 
-# TODO: understand if it is useful to restrict only to a subset of significant
-# random coefficients
+# extract estimated p-values related to statistical significance tests
+p_vals <- s[, "Pr(>|z|)"]
+
+# create proper data frame with information above
+stats_df <- data.frame(
+  Parameter = rownames(s),
+  Estimate = s[, "Estimate"],
+  Std_Error = s[, "Std. Error"],
+  Z_value = s[, "z-value"],
+  P_value = s[, "Pr(>|z|)"]
+)
+
+# create boolean column to identify statistically significant relationships
+# (i.e., those having a p value smaller than 5%)
+stats_df$Significant <- stats_df$P_value < 0.05
+# create a boolean column that is TRUE when cor is included in the parameter name
+stats_df$Iscorrelation <- stringr::str_like(stats_df$Parameter, "cor%")
+
+# extract only relevant rows (significant and relative to correlations)
+significant_cors <- stats_df %>% 
+  filter(Significant == T,
+         Iscorrelation == T)
+
+# create vector to be passed as an update to the model
+significant_cors <- stringr::str_remove(significant_cors$Parameter, "cor.")
+significant_cors <- stringr::str_split(significant_cors, pattern = ":")
+
+# remove duplicates
+vec_significant_corrs <- unique(unlist(significant_cors))
+# update model to include only significant correlations
+m2_mixed_significant_corrs <- update(m2_mixed_corr,
+                                     correlation = vec_significant_corrs)
 
 # The significant presence of random coefficients and their correlation 
 # can be further investigated using the ML tests, such as the ML ratio test
-lrtest(m2, m2_mixed) #Fixed effects vs. uncorrelated random effects
-lrtest(m2_mixed, m2_mixed_corr) #Uncorrelated random effects vs. all correlated random effects
+lrtest(m2, m2_mixed) # Fixed effects vs. uncorrelated random effects
+lrtest(m2_mixed, m2_mixed_corr) # Uncorrelated random effects vs. all correlated random effects
+lrtest(m2_mixed_corr, m2_mixed_significant_corrs) # all correlated random effects vs only statistically significant correlated random effects
+# full mixed correlation model is the better one according to ML ratio test.
 
 predict.mixed.mnl <- function(model, data, nresp=1000) {
   # Function for predicting shares from a mixed MNL model 
@@ -312,6 +393,10 @@ predict.mixed.mnl <- function(model, data, nresp=1000) {
 # we can study the relationship between the individual part worth and the 
 # individual-level variables. Individual part worth can be extracted using
 # fitted(), with the "type" argument set to "parameters". 
-PW_ind <- fitted(m2_mixed_corr, type = "parameters")
-head(PW_ind)
+PW_ind <- fitted(m2_mixed_corr, type = "parameters") # part worths (individuals)
+head(PW_ind) # preview of data
 
+nrow(PW_ind) # one row for each respondent.
+
+# since we did not gather individual-level variables we cannot infer from behavioral
+# characteristics why the individual part worths are what they are.
