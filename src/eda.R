@@ -3,6 +3,7 @@
 # set the maximum printable lines to 5000 so that longer summary outputs
 # can be printed to screen fully
 options(max.print = 5000)
+
 # import necessary libraries
 library(pacman)
 p_load(ggplot2, readr, tidyr, tidyverse, latex2exp, mlogit, MASS, lattice, janitor)
@@ -126,6 +127,7 @@ df_mlogit$label <- relevel(df_mlogit$label, ref = "No designation")
 # fit complete model with intercept
 m1 <- mlogit(choice ~ Price + Brands + Type + Alcohol + Age + Sweetness + label,
              data = df_mlogit)
+
 # get summary of the fitted model
 summary(m1)
 # we notice that the alternative-specific intercepts are not significant. We can
@@ -135,11 +137,13 @@ summary(m1)
 # fit restricted model 
 m2 <- mlogit(choice ~ Price + Brands + Type + Alcohol + Age + Sweetness + label | -1,
              data = df_mlogit)
+
 # check if the fully-specified model has more explanatory power than the restricted model
 # we can do this by performing a likelihood ratio test of the two models
 # H0: the simpler (restricted) model fits the data better
 # H1: the more complicated model fits the data better
-lrtest(m2, m1)
+(lr_restricted <- lrtest(m2, m1))
+
 # p > 0.05, so we conclude that the simpler restricted model is better
 # since we cannot reject H0
 summary(m2)
@@ -166,7 +170,7 @@ compute_WTP <- function(attribute_name) {
   print(paste("WTP of", attribute_name, "is", WTP))
 }
 
-# skip first coefficient since it is price
+# skip first coefficient since it is price itself
 for (name in names(coef(m3)[2:length(names(coef(m3)))])) {
   compute_WTP(name)
 }
@@ -293,8 +297,7 @@ m2_mixed <- mlogit(choice ~ Price + Brands + Type + Alcohol + Age + Sweetness + 
                    panel = TRUE,
                    rpar = rpar,
                    correlation = FALSE)
-# names(m2_mixed$rpar)
-# names(m2_mixed$rpar) <- janitor::make_clean_names(names(m2_mixed$rpar))
+
 # visual summary of distribution of random effects
 plot(m2_mixed)
 
@@ -359,9 +362,9 @@ m2_mixed_significant_corrs <- update(m2_mixed_corr,
 
 # The significant presence of random coefficients and their correlation 
 # can be further investigated using the ML tests, such as the ML ratio test
-lrtest(m2, m2_mixed) # Fixed effects vs. uncorrelated random effects
-lrtest(m2_mixed, m2_mixed_corr) # Uncorrelated random effects vs. all correlated random effects
-lrtest(m2_mixed_corr, m2_mixed_significant_corrs) # all correlated random effects vs only statistically significant correlated random effects
+(m2_vs_m2_mixed <- lrtest(m2, m2_mixed)) # Fixed effects vs. uncorrelated random effects
+(m2_mixed_vs_m2_mixed_corr <- lrtest(m2_mixed, m2_mixed_corr)) # Uncorrelated random effects vs. all correlated random effects
+(m2_mixed_corr_vs_m2_mixed_significant_corrs <- lrtest(m2_mixed_corr, m2_mixed_significant_corrs)) # all correlated random effects vs only statistically significant correlated random effects
 # full mixed correlation model is the better one according to ML ratio test.
 
 predict.mixed.mnl <- function(model, data, nresp=1000) {

@@ -5,7 +5,7 @@
 # import necessary libraries
 library(pacman)
 p_load(ggplot2, readr, tidyr, tidyverse, latex2exp, mlogit, MASS, lattice, vcd,
-       car, Matrix, AlgDesign)
+       car, Matrix, AlgDesign, stargazer)
 
 # import data
 df <- read_delim("data/CBC_Wine_data.csv", 
@@ -126,7 +126,7 @@ cat("Relative D-eff:", deff / as.numeric(deff_opt), "\n")
 attributes <- names(df)[4:10] 
 df %>% 
   dplyr::select(all_of(attributes)) %>% 
-  unique()
+  n_distinct()
 
 # Conclusion: the design is not full factorial since it does not contain
 # all possible combination of attribute levels. However, based on the analysis
