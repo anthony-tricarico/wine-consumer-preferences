@@ -126,7 +126,7 @@ cat("Relative D-eff:", deff / as.numeric(deff_opt), "\n")
 attributes <- names(df)[4:10] 
 df %>% 
   dplyr::select(all_of(attributes)) %>% 
-  unique()
+  n_distinct()
 
 # Conclusion: the design is not full factorial since it does not contain
 # all possible combination of attribute levels. However, based on the analysis
