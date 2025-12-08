@@ -5,7 +5,7 @@
 # import necessary libraries
 library(pacman)
 p_load(ggplot2, readr, tidyr, tidyverse, latex2exp, mlogit, MASS, lattice, vcd,
-       car, Matrix, AlgDesign)
+       car, Matrix, AlgDesign, stargazer)
 
 # import data
 df <- read_delim("data/CBC_Wine_data.csv", 
