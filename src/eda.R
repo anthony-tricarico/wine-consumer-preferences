@@ -156,23 +156,27 @@ summary(m3)
 
 # we compare the fit of this model to that of the previous restricted model
 # which included Price as a qualitative factorial variable
-lrtest(m3, m2)
+(m3_vs_m2 <- lrtest(m3, m2))
 # in this case we see that the model considering price as a qualitative variable
 # explains a significant amount of variation in consumer choice compared to the
 # model which considers price a quantitative variable.
 
 # compute willingness to pay for selected attributes
-compute_WTP <- function(attribute_name) {
+df_wtp <- tibble(attribute = character(0), WTP = numeric(0))
+
+compute_WTP <- function(attribute_name, df) {
   coefs <- coef(m3)
   price_coef <- coefs["Price_eur"]
   
   WTP <- -coefs[attribute_name] / price_coef
   print(paste("WTP of", attribute_name, "is", WTP))
+  df <- add_row(df, attribute = attribute_name, WTP = WTP)
+  return(df)
 }
 
 # skip first coefficient since it is price itself
 for (name in names(coef(m3)[2:length(names(coef(m3)))])) {
-  compute_WTP(name)
+  df_wtp <- compute_WTP(name, df_wtp)
 }
 # a negative WTP implies that consumers do not appreciate that specific level
 # of an attribute (compared to the baseline) and would be willing to accept it
