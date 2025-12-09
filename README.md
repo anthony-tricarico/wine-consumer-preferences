@@ -34,6 +34,7 @@ Follow these rules when contributing your code:
 ├── renv.lock
 ├── src                     # folder containing all scripts
     ├── eda.R               # exploratory data analysis script
+    ├── checks.R            # data simulation sanity checks
     └── setup.R             # setup script to be executed at first startup
 ```
 ## Analysis plan
