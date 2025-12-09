@@ -1,0 +1,62 @@
+---
+title: "Conjoint Analysis: a case study on wines in Trentino" 
+author: "Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricarico"
+format: revealjs
+editor: visual
+title-slide-attributes:
+  data-background-image: https://i.pinimg.com/736x/46/a9/99/46a9995be56e5ef424013cf7163ac68a.jpg
+  data-background-size: 400px # Recommended for full-screen image
+  data-background-position: -16% 80% # Puts the image in the bottom right corner
+  #data-background-opacity: "0.8" # Optional: Makes the image slightly transparent
+---
+
+## Table of Contents {background-gradient="linear-gradient(#EFEFC9, #640017)"}
+
+-   Introduction
+-   Methodology
+-   Results
+-   Interpretation of Results
+-   Managerial implications and Conclusions
+
+# Introduction {background-image="https://i.pinimg.com/1200x/3f/31/bb/3f31bb9fcadf361d0a6c403893f91018.jpg"}
+
+## Why is conjoint analysis beneficial {background-color="#EFEFC9"}
+
+One of the main struggles in business analysis and market research is understanding the real preferences of the consumers. Using simple opinion surveys might not be sufficient to understand what consumers prefers. 
+
+Choice based conjoint analysis is a more advance methodological procedure used in market research that allows to get explicitly which combinations of product's attributes and their levels are preferred by the consumers. 
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## The case study selected {background-color="#640017"}
+
+This project is specifically focused on investigating consumers' preferences in the wine sector, focusing specifically on wines from canteens in the region of Trentino. 
+
+# Methodology
+
+## Attributes and levels selected
+
+::: {.incremental}
+- Price per bottle: Cheap (3-15€), Popular (15-20€), Premium (20-50€), Luxury (50-100€)
+- Brands: Cavit, Mezzacorona, La-Vis, Cantina Toblino
+- Type of wine: red wine, white wine, sparkling wine, rose wine.
+- Alcohol Percentage: 5.5%, 7%, 12%, 18%
+- Wine aging time: 1 year, 2 years, 3 years, 4 years, 5 years, > 5 years
+- Sweetness: dry, semi-dry, semi-sweet, sweet
+- Quality label: No designation, IGT, DOC, DOCG
+:::
+
+# Results
+
+```{r}
+1 + 1
+```
+
+
+# Interpretation of results
+
+# Manegirial Implications
+
+# Conclusion

@@ -275,6 +275,7 @@ cov2cor(cov.mlogit(m2_mixed_corr))
 # we can test significant relationships as well by estimating standard errors
 summary(vcov(m2_mixed_corr, what = "rpar", type = "cor"))
 
+
 # TODO: understand if it is useful to restrict only to a subset of significant
 # random coefficients
 
