@@ -47,9 +47,11 @@ for (i in 1:length(tables_names)) {
 tables_no_models <- list(lr_restricted, sorted_shares,
                      base_data, competitor_data,
                      significant_correlations_coefficients,
+                     m3_vs_m2,
                      m2_vs_m2_mixed,
                      m2_mixed_vs_m2_mixed_corr,
-                     m2_mixed_corr_vs_m2_mixed_significant_corrs)
+                     m2_mixed_corr_vs_m2_mixed_significant_corrs,
+                     df_wtp)
 
 # descriptions attached to each table
 descriptions_no_models <- c(
@@ -58,9 +60,11 @@ descriptions_no_models <- c(
                   "Base Profile (Sensitivity Analysis)",
                   "Competitor Profile (Sensitivity Analysis)",
                   "Coefficients with Statistically Significant Correlations from Mixed Model",
+                  "Difference in models treating price as a continuous or categorical variable",
                   "Fixed vs Random Coefficients",
                   "Random uncorrelated vs Random correlated",
-                  "All random correlated Coefficients vs Significant correlated Coefficients")
+                  "All random correlated Coefficients vs Significant correlated Coefficients",
+                  "WTP associated to each attribute level")
 
 # output names (file names)
 output_names_no_models <- c(
@@ -69,9 +73,11 @@ output_names_no_models <- c(
                   "latex/base_profile.tex",
                   "latex/competitor_profile.tex",
                   "latex/significant_coefficient_corrs.tex",
+                  "latex/price_quantitative_vs_qualitative.tex",
                   "latex/fixed_vs_random_coeffs.tex",
                   "latex/random_un_vs_corr.tex",
-                  "latex/all_corr_coeffs_vs_significant_corr_coefs.tex")
+                  "latex/all_corr_coeffs_vs_significant_corr_coefs.tex",
+                  "latex/wtp_by_attribute_level.tex")
 
 
 for (i in 1:length(tables_no_models)) {
