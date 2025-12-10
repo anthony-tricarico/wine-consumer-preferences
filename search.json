@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "final_presentation.html#table-of-contents",
+    "href": "final_presentation.html#table-of-contents",
+    "title": "Conjoint Analysis: A Case Study on Wine Consumers’ Preferences in Trentino",
+    "section": "Table of Contents",
+    "text": "Table of Contents\n\nIntroduction\nMethodology\nResults\nInterpretation of Results\nManagerial implications and Conclusions"
+  },
+  {
+    "objectID": "final_presentation.html#why-is-conjoint-analysis-beneficial",
+    "href": "final_presentation.html#why-is-conjoint-analysis-beneficial",
+    "title": "Conjoint Analysis: A Case Study on Wine Consumers’ Preferences in Trentino",
+    "section": "Why is Conjoint Analysis Beneficial",
+    "text": "Why is Conjoint Analysis Beneficial\nOne of the main struggles in business analysis and market research is understanding the real preferences of the consumers. Using simple opinion surveys might not be sufficient to understand what consumers prefers.\nChoice based conjoint analysis is a more advanced methodological procedure used in market research that allows to get explicitly which combinations of product’s attributes and levels are preferred by the consumers.\nIndeed, conjoint analysis can be defined as “any decompositional method that estimates the structure of a consumer’s preferences in terms of the levels of attributes of the alternatives” (Rao, 2014).\n\nSpeaker notes go here."
+  },
+  {
+    "objectID": "final_presentation.html#the-case-study-selected",
+    "href": "final_presentation.html#the-case-study-selected",
+    "title": "Conjoint Analysis: A Case Study on Wine Consumers’ Preferences in Trentino",
+    "section": "The case study selected",
+    "text": "The case study selected\nThis project is focused on investigating consumers’ preferences in the wine sector, focusing specifically on wines from canteens in the region of Trentino. We decided to conduct our analysis on this type of product as it is something that can have many attributes, each with many levels, so it was an interesting object of study for a choice based conjoint analysis."
+  },
+  {
+    "objectID": "final_presentation.html#attributes-and-levels-selected",
+    "href": "final_presentation.html#attributes-and-levels-selected",
+    "title": "Conjoint Analysis: A Case Study on Wine Consumers’ Preferences in Trentino",
+    "section": "Attributes and levels selected",
+    "text": "Attributes and levels selected\n\n\nPrice per bottle: Cheap (3-15€), Popular (15-20€), Premium (20-50€), Luxury (50-100€)\nBrands: Cavit, Mezzacorona, La-Vis, Cantina Toblino\nType of wine: red wine, white wine, sparkling wine, rose wine.\nAlcohol Percentage: 5.5%, 7%, 12%, 18%\nWine aging time: 1 year, 2 years, 3 years, 4 years, 5 years, &gt; 5 years\nSweetness: dry, semi-dry, semi-sweet, sweet\nQuality label: No designation, IGT, DOC, DOCG"
+  },
+  {
+    "objectID": "final_presentation.html#checks-performed",
+    "href": "final_presentation.html#checks-performed",
+    "title": "Conjoint Analysis: A Case Study on Wine Consumers’ Preferences in Trentino",
+    "section": "Checks performed",
+    "text": "Checks performed\n\nAttention CheckFractional Factorial Design Check\n\n\nTo assess potential survey fatigue or possible respondents distractions, we examined for each respondent the standard deviation of the chosen alternative position (alt) across questions.\n\nRespondents with low variability are those choosing mostly the answer in the same position for each different question.\nOnly a small portion (4 participants resulted having low variability, so they were not dropped from the study\n\n\n\n\n\n\n\n\n\n\n\n\nContent for Tab B"
+  },
+  {
+    "objectID": "final_presentation.html#data-modeling",
+    "href": "final_presentation.html#data-modeling",
+    "title": "Conjoint Analysis: A Case Study on Wine Consumers’ Preferences in Trentino",
+    "section": "Data Modeling",
+    "text": "Data Modeling\n\nMultinomial Logit (MNL)Mixed MNL (MMNL)\n\n\nBaseline model assuming homogeneous preferences\n\n\n\nFull Multinomial Logit Model Summary\n\n\nterm\nstatistic\nCoefficient Estimate\n\n\n\n\nPriceLuxury\nestimate\n-1.077 (0.051)***\n\n\nPricePopular\nestimate\n-0.333 (0.047)***\n\n\nPricePremium\nestimate\n-0.685 (0.048)***\n\n\nBrandsLa-Vis\nestimate\n-0.282 (0.049)***\n\n\nBrandsMezzacorona\nestimate\n0.736 (0.047)***\n\n\nBrandsToblino\nestimate\n-0.918 (0.054)***\n\n\nTyperose\nestimate\n0.770 (0.045)***\n\n\nTypesparkling\nestimate\n-1.350 (0.055)***\n\n\nTypewhite\nestimate\n-0.938 (0.051)***\n\n\nAlcohol12 Perc\nestimate\n0.545 (0.048)***\n\n\nAlcohol18 Perc\nestimate\n0.515 (0.048)***\n\n\nAlcohol7 Perc\nestimate\n-1.057 (0.056)***\n\n\nAge2 years\nestimate\n0.301 (0.064)***\n\n\nAge3 years\nestimate\n0.676 (0.063)***\n\n\nAge4 years\nestimate\n1.149 (0.062)***\n\n\nAge5 years\nestimate\n0.704 (0.063)***\n\n\nAge5+ years\nestimate\n0.439 (0.063)***\n\n\nSweetnesssemi-dry\nestimate\n-0.664 (0.049)***\n\n\nSweetnesssemi-sweet\nestimate\n0.087 (0.047)+\n\n\nSweetnesssweet\nestimate\n-0.907 (0.051)***\n\n\nlabelDOC\nestimate\n0.565 (0.051)***\n\n\nlabelDOCG\nestimate\n0.676 (0.050)***\n\n\nlabelIGT\nestimate\n0.225 (0.051)***\n\n\n\n\n\n\n\n\n\nAccounts for substantial unobserved taste heterogeneity across individuals\n\n\n\nFull Multinomial Logit Model Summary\n\n\nterm\nstatistic\nCoefficient Estimate\n\n\n\n\nPriceLuxury\nestimate\n-1.258 (0.060)***\n\n\nPricePopular\nestimate\n-0.374 (0.054)***\n\n\nPricePremium\nestimate\n-0.817 (0.056)***\n\n\nBrandsLa-Vis\nestimate\n-0.345 (0.057)***\n\n\nBrandsMezzacorona\nestimate\n0.889 (0.055)***\n\n\nBrandsToblino\nestimate\n-1.034 (0.061)***\n\n\nTyperose\nestimate\n0.914 (0.053)***\n\n\nTypesparkling\nestimate\n-1.545 (0.064)***\n\n\nTypewhite\nestimate\n-1.102 (0.059)***\n\n\nAlcohol12 Perc\nestimate\n0.611 (0.054)***\n\n\nAlcohol18 Perc\nestimate\n0.606 (0.056)***\n\n\nAlcohol7 Perc\nestimate\n-1.297 (0.068)***\n\n\nAge2 years\nestimate\n0.346 (0.075)***\n\n\nAge3 years\nestimate\n0.777 (0.073)***\n\n\nAge4 years\nestimate\n1.333 (0.074)***\n\n\nAge5 years\nestimate\n0.831 (0.074)***\n\n\nAge5+ years\nestimate\n0.500 (0.073)***\n\n\nSweetnesssemi-dry\nestimate\n-0.745 (0.057)***\n\n\nSweetnesssemi-sweet\nestimate\n0.115 (0.053)*\n\n\nSweetnesssweet\nestimate\n-1.043 (0.059)***\n\n\nlabelDOC\nestimate\n0.608 (0.058)***\n\n\nlabelDOCG\nestimate\n0.751 (0.059)***\n\n\nlabelIGT\nestimate\n0.262 (0.058)***\n\n\nsd.PriceLuxury\nestimate\n0.516 (0.075)***\n\n\nsd.PricePopular\nestimate\n0.425 (0.067)***\n\n\nsd.PricePremium\nestimate\n-0.419 (0.076)***\n\n\nsd.BrandsLa-Vis\nestimate\n0.394 (0.072)***\n\n\nsd.BrandsMezzacorona\nestimate\n0.344 (0.074)***\n\n\nsd.BrandsToblino\nestimate\n0.035 (0.091)\n\n\nsd.Typerose\nestimate\n0.496 (0.069)***\n\n\nsd.Typesparkling\nestimate\n0.245 (0.084)**\n\n\nsd.Typewhite\nestimate\n-0.127 (0.081)\n\n\nsd.Alcohol12 Perc\nestimate\n-0.142 (0.071)*\n\n\nsd.Alcohol18 Perc\nestimate\n0.156 (0.076)*\n\n\nsd.Alcohol7 Perc\nestimate\n0.641 (0.086)***\n\n\nsd.Age2 years\nestimate\n0.380 (0.098)***\n\n\nsd.Age3 years\nestimate\n-0.449 (0.081)***\n\n\nsd.Age4 years\nestimate\n-0.027 (0.086)\n\n\nsd.Age5 years\nestimate\n0.414 (0.086)***\n\n\nsd.Age5+ years\nestimate\n0.411 (0.091)***\n\n\nsd.Sweetnesssemi-dry\nestimate\n0.608 (0.072)***\n\n\nsd.Sweetnesssemi-sweet\nestimate\n0.460 (0.067)***\n\n\nsd.Sweetnesssweet\nestimate\n0.543 (0.071)***\n\n\nsd.labelDOC\nestimate\n0.577 (0.065)***\n\n\nsd.labelDOCG\nestimate\n0.444 (0.070)***\n\n\nsd.labelIGT\nestimate\n0.403 (0.076)***"
+  }
+]
