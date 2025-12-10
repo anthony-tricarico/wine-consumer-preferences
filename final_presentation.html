@@ -150,13 +150,13 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 <li>Managerial implications and Conclusions</li>
 </ul>
 </section>
-<section>
 <section id="introduction" class="title-slide slide level1 center" data-background-image="https://i.pinimg.com/1200x/3f/31/bb/3f31bb9fcadf361d0a6c403893f91018.jpg">
 <h1>Introduction</h1>
 
 </section>
-<section id="why-is-conjoint-analysis-beneficial" class="slide level2 smaller" data-background-color="#EFEFC9">
-<h2>Why is Conjoint Analysis Beneficial</h2>
+
+<section id="why-is-conjoint-analysis-beneficial" class="title-slide slide level1 smaller center" data-background-color="#EFEFC9">
+<h1>Why is Conjoint Analysis Beneficial</h1>
 <p>One of the main struggles in business analysis and market research is understanding the real preferences of the consumers. Using simple opinion surveys might not be sufficient to understand what consumers prefers.</p>
 <p>Choice based conjoint analysis is a more advanced methodological procedure used in market research that allows to get explicitly which combinations of product’s attributes and levels are preferred by the consumers.</p>
 <p>Indeed, conjoint analysis can be defined as “any decompositional method that estimates the structure of a consumer’s preferences in terms of the levels of attributes of the alternatives” (Rao, 2014).</p>
@@ -174,12 +174,14 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-case-study-selected" class="slide level2" data-background-color="#640017">
-<h2>The case study selected</h2>
+
+<section id="the-case-study-selected" class="title-slide slide level1 center" data-background-color="#640017">
+<h1>The case study selected</h1>
 <p>This project is focused on investigating consumers’ preferences in the wine sector, focusing specifically on wines from canteens in the region of Trentino. We decided to conduct our analysis on this type of product as it is something that can have many attributes, each with many levels, so it was an interesting object of study for a choice based conjoint analysis.</p>
-</section></section>
+</section>
+
 <section>
-<section id="methodology" class="title-slide slide level1 smaller center">
+<section id="methodology" class="title-slide slide level1 smaller center" data-background-color="#5A5E27">
 <h1>Methodology</h1>
 <p>The analysis starts off with the simulation of a choice-based conjoint survey on wines preferences, from which the data were generated.</p>
 <ul>
@@ -187,7 +189,7 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 <li><strong>Respondents/Choices</strong>: 350 respondents completing 6,300 choice situations. In total we have 25,200 observations where each row corresponds to a specific alternative within a specific question for a specific respondent.</li>
 </ul>
 </section>
-<section id="attributes-and-levels-selected" class="slide level2">
+<section id="attributes-and-levels-selected" class="slide level2 smaller" data-background-color="#2F1B1A">
 <h2>Attributes and levels selected</h2>
 <div>
 <ul>
@@ -201,7 +203,7 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </ul>
 </div>
 </section>
-<section id="checks-performed-and-modelling" class="slide level2 smaller nonstretch scrollable">
+<section id="checks-performed-and-modelling" class="slide level2 smaller nonstretch scrollable" data-background-color="#EFEFC9">
 <h2>Checks performed and Modelling</h2>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Attention Check</a></li><li><a href="#tabset-1-2">Modelling Framework</a></li><li><a href="#tabset-1-3">Price Modelling</a></li><li><a href="#tabset-1-4">Mixed Logit Extension</a></li></ul>
@@ -244,7 +246,7 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 <li><p>Used to compute WTP Less flexible but interpretable marginal effect</p></li>
 </ul></li>
 <li><p>Model comparison Likelihood ratio tests → categorical price model preferred</p></li>
-<li><p>Continuous model retained only for WTP computation</p></li>
+<li><p>Continuous model retained only for WTP computation <span class="math display">\[WTP_{k}=-\frac{\beta_{k}}{\beta_{Price}}\]</span></p></li>
 </ul>
 </div>
 <div id="tabset-1-4">
@@ -264,14 +266,14 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </div>
 </section></section>
 <section>
-<section id="results" class="title-slide slide level1 center">
+<section id="results" class="title-slide slide level1 center" data-background-image="./images/wine.png">
 <h1>Results</h1>
 
-<img data-src="final_presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="data-modeling" class="slide level2 smaller nonstretch scrollable">
+</section>
+<section id="data-modeling" class="slide level2 smaller nonstretch scrollable" data-background-color="#5A5E27">
 <h2>Data Modeling</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Multinomial Logit (MNL)</a></li><li><a href="#tabset-2-2">Mixed MNL (MMNL)</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Multinomial Logit (MNL)</a></li><li><a href="#tabset-2-2">Mixed MNL (MMNL)</a></li><li><a href="#tabset-2-3">Mixed MNL (correlated coefficients)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Baseline model assuming homogeneous preferences</p>
@@ -660,15 +662,1188 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </div>
 </div>
 </div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="interpretation-of-results" class="title-slide slide level1 center">
-<h1>Interpretation of results</h1>
+<div id="tabset-2-3">
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Full Multinomial Logit Model Summary</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Coefficient Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PriceLuxury</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-1.476 (0.067)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PricePopular</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.449 (0.059)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PricePremium</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.935 (0.061)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BrandsLa-Vis</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.336 (0.062)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BrandsMezzacorona</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.970 (0.060)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BrandsToblino</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-1.179 (0.068)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">1.029 (0.058)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-1.782 (0.071)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typewhite</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-1.234 (0.064)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.694 (0.059)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.681 (0.061)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-1.450 (0.075)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age2 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.475 (0.081)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.889 (0.080)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">1.533 (0.083)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age5 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.973 (0.080)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.580 (0.081)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.904 (0.064)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.127 (0.059)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-1.176 (0.067)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.721 (0.064)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.885 (0.065)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.285 (0.065)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sd.PriceLuxury</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.710 (0.068)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sd.Typewhite</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.273 (0.066)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sd.Age2 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.388 (0.074)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sd.Age5 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.387 (0.074)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × PricePopular</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.403 (0.067)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × PricePremium</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.359 (0.068)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × PricePremium</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.013 (0.063)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × BrandsLa-Vis</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.081 (0.081)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × BrandsLa-Vis</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.494 (0.076)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × BrandsLa-Vis</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.125 (0.072)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × BrandsMezzacorona</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.029 (0.074)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × BrandsMezzacorona</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.169 (0.073)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × BrandsMezzacorona</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.193 (0.066)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × BrandsMezzacorona</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.325 (0.061)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × BrandsToblino</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.046 (0.086)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × BrandsToblino</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.138 (0.082)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × BrandsToblino</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.105 (0.077)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × BrandsToblino</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.033 (0.069)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × BrandsToblino</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.127 (0.067)+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.004 (0.065)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.133 (0.062)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.072 (0.060)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.175 (0.061)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.579 (0.062)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × Typerose</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.067 (0.063)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.224 (0.075)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.030 (0.074)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.288 (0.069)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.213 (0.071)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.004 (0.071)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.378 (0.070)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × Typesparkling</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.143 (0.074)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.154 (0.074)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.221 (0.072)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.121 (0.068)+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.133 (0.071)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.104 (0.070)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typerose × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.016 (0.070)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typesparkling × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.061 (0.074)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol12 Perc × Alcohol12 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.114 (0.070)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.139 (0.074)+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.106 (0.073)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.037 (0.072)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.016 (0.070)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.064 (0.072)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typerose × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.149 (0.071)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typesparkling × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.158 (0.079)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol12 Perc × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.106 (0.071)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol18 Perc × Alcohol18 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.097 (0.070)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.189 (0.090)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.178 (0.085)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.061 (0.081)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.464 (0.084)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.035 (0.082)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.132 (0.084)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.223 (0.093)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol12 Perc × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.271 (0.082)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol18 Perc × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.138 (0.083)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol7 Perc × Alcohol7 Perc</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.181 (0.077)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.098 (0.079)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.245 (0.077)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.378 (0.071)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.218 (0.073)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.159 (0.072)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.100 (0.072)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.068 (0.077)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol12 Perc × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.053 (0.074)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol18 Perc × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.127 (0.081)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol7 Perc × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.079 (0.076)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age3 years × Age3 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.173 (0.078)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.202 (0.077)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.137 (0.075)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.028 (0.076)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.065 (0.071)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.390 (0.075)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typerose × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.094 (0.077)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typesparkling × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.098 (0.078)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol12 Perc × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.199 (0.073)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol18 Perc × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.040 (0.083)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol7 Perc × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.060 (0.077)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age3 years × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.191 (0.078)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age4 years × Age4 years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.067 (0.076)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.058 (0.080)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.038 (0.076)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.009 (0.073)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.177 (0.073)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.267 (0.078)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typerose × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.225 (0.074)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typesparkling × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.362 (0.081)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol12 Perc × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.426 (0.076)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol18 Perc × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.007 (0.086)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol7 Perc × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.242 (0.079)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age3 years × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.177 (0.081)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age4 years × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.237 (0.074)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age5+ years × Age5+ years</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.217 (0.077)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.495 (0.078)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.192 (0.076)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.074 (0.071)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.058 (0.076)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.109 (0.071)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.128 (0.074)+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.020 (0.080)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol12 Perc × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.181 (0.074)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol18 Perc × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.496 (0.087)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol7 Perc × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.240 (0.079)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age3 years × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.236 (0.082)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age4 years × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.010 (0.081)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age5+ years × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.257 (0.079)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssemi-dry × Sweetnesssemi-dry</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.249 (0.078)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.003 (0.076)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.125 (0.074)+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.283 (0.069)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.022 (0.069)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.038 (0.071)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.145 (0.072)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.245 (0.077)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol12 Perc × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.197 (0.069)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol18 Perc × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.180 (0.078)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol7 Perc × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.212 (0.077)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age3 years × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.103 (0.075)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age4 years × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.284 (0.072)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age5+ years × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.124 (0.078)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssemi-dry × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.171 (0.072)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssemi-sweet × Sweetnesssemi-sweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.162 (0.067)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.047 (0.086)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.008 (0.080)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.363 (0.076)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.067 (0.077)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.212 (0.074)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typerose × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.202 (0.079)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typesparkling × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.522 (0.085)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol12 Perc × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.430 (0.076)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol18 Perc × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.365 (0.087)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol7 Perc × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.110 (0.084)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age3 years × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.129 (0.084)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age4 years × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.116 (0.081)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age5+ years × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.074 (0.084)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssemi-dry × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.127 (0.082)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssemi-sweet × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.218 (0.074)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssweet × Sweetnesssweet</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.516 (0.067)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePopular × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.174 (0.081)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePremium × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.225 (0.078)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsLa-Vis × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.307 (0.072)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsMezzacorona × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.148 (0.075)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsToblino × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.067 (0.073)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typerose × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.192 (0.077)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typesparkling × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.053 (0.079)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol12 Perc × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.199 (0.077)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol18 Perc × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.121 (0.083)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol7 Perc × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.352 (0.081)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age3 years × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.186 (0.080)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age4 years × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.174 (0.078)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age5+ years × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.256 (0.082)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssemi-dry × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.064 (0.078)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssemi-sweet × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.091 (0.081)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssweet × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.119 (0.073)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.labelDOC × labelDOC</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.091 (0.081)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.126 (0.084)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.200 (0.079)*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.120 (0.075)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.245 (0.078)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.119 (0.077)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.223 (0.079)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.134 (0.082)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol12 Perc × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.072 (0.075)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol18 Perc × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.398 (0.087)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol7 Perc × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.044 (0.081)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age3 years × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.080 (0.082)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age4 years × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.244 (0.081)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age5+ years × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.118 (0.083)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssemi-dry × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.028 (0.079)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssemi-sweet × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.185 (0.082)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssweet × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.035 (0.075)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.labelDOC × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.237 (0.084)**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.labelDOCG × labelDOCG</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.064 (0.075)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.PricePopular × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.098 (0.081)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.PricePremium × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.090 (0.082)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsLa-Vis × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.007 (0.075)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.BrandsMezzacorona × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.012 (0.077)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.BrandsToblino × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.186 (0.076)*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Typerose × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.220 (0.078)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Typesparkling × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.114 (0.085)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol12 Perc × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.075 (0.077)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Alcohol18 Perc × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.156 (0.091)+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Alcohol7 Perc × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.097 (0.081)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age3 years × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.131 (0.084)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Age4 years × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.295 (0.080)***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Age5+ years × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.068 (0.087)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssemi-dry × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.217 (0.079)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.Sweetnesssemi-sweet × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.286 (0.083)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.Sweetnesssweet × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.212 (0.079)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.labelDOC × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.442 (0.082)***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chol.labelDOCG × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.250 (0.077)**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chol.labelIGT × labelIGT</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.145 (0.071)*</td>
+</tr>
+</tbody>
+</table>
 
+
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="managerial-implications-1" class="slide level2 smaller nonstretch scrollable">
+<section id="key-coefficient-patterns" class="slide level2 smaller nonstretch scrollable" data-background-color="#640017">
+<h2>Key coefficient patterns</h2>
+<p>The baseline model revealed consistent coefficient patterns that form the quantitative structure of preferences.</p>
+<ul>
+<li><p>Price: Higher price tiers (Popular, Premium, Luxury) showed negative and strongly significant coefficients relative to the baseline (Cheap).</p></li>
+<li><p>Brand: Mezzacorona had a large positive coefficient, while Cavit and Toblino were associated with large negative coefficients.</p></li>
+<li><p>Type: Rosé obtained the highest coefficient among wine types.</p></li>
+<li><p>Ageing: Intermediate ages (particularly four years) were associated with higher utility than one year.</p></li>
+<li><p>Quality Label: DOC/DOCG labels were clearly favored over No designation.</p></li>
+</ul>
+</section>
+<section id="interpretation-of-results" class="slide level2 smaller nonstretch scrollable" data-background-color="#5A5E27">
+<h2>Interpretation of Results</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Price Sensitivity</a></li><li><a href="#tabset-3-2">Willingness To Pay and Attribute Trade-offs</a></li><li><a href="#tabset-3-3">Profiles, Shares and Key Levers</a></li><li><a href="#tabset-3-4">Heterogeneity and Takeaways</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>Utilities are relative to: Cheap, Cavit, red, 5.5% alcohol, 1 year, dry, no designation</p></li>
+<li><p>Descriptives: Mezzacorona, lower price tiers, rosé, medium–high alcohol, ~4 years, DOC/DOCG chosen more often (Figure 5)</p></li>
+<li><p>Baseline MNL with categorical price: all higher tiers have lower utility than Cheap</p></li>
+<li><p>Categorical price model fits better than continuous → price effect not well described by a simple linear relationship</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="final_presentation_files/figure-revealjs/plots-distribution-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div id="tabset-3-2">
+<p>Continuous Price_eur used to compute WTP</p>
+<p>Largest WTP differences:</p>
+<ul>
+<li><p>brand and quality label</p></li>
+<li><p>wine type and ageing</p></li>
+</ul>
+<p>Sweetness and alcohol: mainly important via required discounts for less attractive profiles</p>
+<p>Behaviorally plausible pattern</p>
+</div>
+<div id="tabset-3-3">
+<ul>
+<li><p>Coefficients combine to give utility of full profiles</p></li>
+<li><p>High-utility / “ideal” profile:</p>
+<ul>
+<li>low or moderate price, Mezzacorona, rosé, medium–high alcohol, ~4 years, dry or semi-sweet, DOC/DOCG</li>
+</ul></li>
+<li><p>Simulated shares: highest for profiles close to this ideal</p></li>
+<li><p>Profiles far from this pattern only achieve meaningful shares at low prices</p></li>
+<li><p>Sensitivity: price and brand → largest shifts; label and type → secondary; sweetness, alcohol, age → smaller effects</p></li>
+</ul>
+</div>
+<div id="tabset-3-4">
+<ul>
+<li><p>Mixed MNL: average patterns hide substantial differences across individuals</p></li>
+<li><p>Standard deviations from mixed model with uncorrelated random effects:</p>
+<ul>
+<li>strongest heterogeneity for price tiers, several brands, most sweetness categories, all quality labels, some ageing levels, very low alcohol</li>
+</ul></li>
+<li><p>These are dimensions where respondents disagree the most</p></li>
+<li><p>Plausible: linked to budget constraints, trust in quality signals, flavour preferences</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="managerial-implications-1" class="slide level2 smaller nonstretch scrollable" data-background-color="#EFEFC9">
 <h2>Managerial Implications (1)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -695,7 +1870,7 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </ul>
 </div></div>
 </section>
-<section id="managerial-implications-2" class="slide level2 smaller nonstretch scrollable">
+<section id="managerial-implications-2" class="slide level2 smaller nonstretch scrollable" data-background-color="#2F1B1A">
 <h2>Managerial Implications (2)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -726,8 +1901,8 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </ul>
 </div></div>
 </section></section>
-<section id="conclusion" class="title-slide slide level1 center">
-<h1>Conclusion</h1>
+<section id="thank-you-for-your-attention" class="title-slide slide level1 inverse center" data-background-gradient="linear-gradient(#5A5E27, #640017)">
+<h1>THANK YOU FOR YOUR ATTENTION!</h1>
 
 
 </section>
