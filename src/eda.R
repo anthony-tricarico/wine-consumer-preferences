@@ -305,6 +305,8 @@ m2_mixed <- mlogit(choice ~ Price + Brands + Type + Alcohol + Age + Sweetness + 
 # visual summary of distribution of random effects
 plot(m2_mixed)
 
+{
+par(mfrow = c(2,3))
 for (i in 1:length(rpar)) {
   var <- names(rpar[i])
   print(paste("=======", var, "======="))
@@ -314,6 +316,8 @@ for (i in 1:length(rpar)) {
   mean(dist)
   med(dist)
   plot(dist)
+}
+par(mfrow = c(1,1))
 }
 
 # this model considers random coefficients to be correlated
