@@ -201,10 +201,10 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </ul>
 </div>
 </section>
-<section id="checks-performed" class="slide level2 smaller nonstretch scrollable">
-<h2>Checks performed</h2>
+<section id="checks-performed-and-modelling" class="slide level2 smaller nonstretch scrollable">
+<h2>Checks performed and Modelling</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Attention Check</a></li><li><a href="#tabset-1-2">Fractional Factorial Design Check</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Attention Check</a></li><li><a href="#tabset-1-2">Modelling Framework</a></li><li><a href="#tabset-1-3">Price Modelling</a></li><li><a href="#tabset-1-4">Mixed Logit Extension</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <p>To assess potential survey fatigue or possible respondents distractions, we examined for each respondent the standard deviation of the chosen alternative position (alt) across questions.</p>
@@ -223,7 +223,42 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </div>
 </div>
 <div id="tabset-1-2">
-<p>Content for <code>Tab B</code></p>
+<ul>
+<li><p>Random Utility Model</p>
+<p>Respondents choose from alternatives differing only by product attributes Predictors vary across alternatives, not individuals → appropriate model is Conditional Logit (MNL)</p></li>
+<li><p>Why MNL as the baseline?</p>
+<p>Captures average (homogeneous) preferences Provides clear, interpretable utility comparisons across attribute levels Serves as benchmark for richer models</p></li>
+</ul>
+</div>
+<div id="tabset-1-3">
+<p>Price represented in two ways:</p>
+<ul>
+<li><p>Categorical (Cheap–Luxury)</p>
+<ul>
+<li><p>Flexible and non-linear</p></li>
+<li><p>Better empirical fit</p></li>
+</ul></li>
+<li><p>Continuous (Price_eur)</p>
+<ul>
+<li><p>Midpoint of each price tier: Cheap €9, Popular €17.5, Premium €35, Luxury €75</p></li>
+<li><p>Used to compute WTP Less flexible but interpretable marginal effect</p></li>
+</ul></li>
+<li><p>Model comparison Likelihood ratio tests → categorical price model preferred</p></li>
+<li><p>Continuous model retained only for WTP computation</p></li>
+</ul>
+</div>
+<div id="tabset-1-4">
+<p><em>Why extend MNL?</em></p>
+<p>MNL assumes homogeneous tastes Does not capture respondent-level variation</p>
+<p>Mixed MNL (MMNL) Allows random coefficients across respondents</p>
+<p>Estimated:</p>
+<ul>
+<li><p>Uncorrelated random coefficients</p></li>
+<li><p>Fully correlated random coefficients</p></li>
+<li><p>Reduced model with only significant correlations</p></li>
+</ul>
+<p>Fit improves substantially → strong evidence of preference heterogeneity</p>
+<p>Individual part-worth extracted for descriptive insight (no demographics → heterogeneity cannot be explained)</p>
 </div>
 </div>
 </div>
@@ -628,16 +663,69 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
 </div>
 </div>
 </section></section>
+<section>
 <section id="interpretation-of-results" class="title-slide slide level1 center">
 <h1>Interpretation of results</h1>
 
 </section>
-
-<section id="managerial-implications" class="title-slide slide level1 center">
-<h1>Managerial Implications</h1>
-
+<section id="managerial-implications-1" class="slide level2 smaller nonstretch scrollable">
+<h2>Managerial Implications (1)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>1.Optimal Product Profile</strong>: which combination of attributes maximizes choice.</p>
+<ul>
+<li><p>Our models identify a clear high-potential wine configuration:</p>
+<ul>
+<li><p>Strong brand (Mezzacorona)</p></li>
+<li><p>Rosé type</p></li>
+<li><p>12–18% alcohol content</p></li>
+<li><p>~4 years of ageing</p></li>
+<li><p>Dry or semi-sweet taste</p></li>
+<li><p>DOC/DOCG certification</p></li>
+</ul></li>
+<li><p>Profiles that combine these attributes consistently reach the highest utilities and predicted preference shares.</p></li>
+<li><p><strong>Prioritize these attributes in product development, as they strongly drive consumer choice</strong></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>2.Pricing Strategy</strong>: pricing guided by willingness to pay</p>
+<ul>
+<li><p><strong>Positive WTP</strong>&nbsp;for brand, ageing, type, and certification. Consumers are willing&nbsp;to pay more for wines with these features.</p></li>
+<li><p><strong>Negative WTP</strong>&nbsp;for weak branding, sweet taste, low ageing, and no designation. These wines must be priced more competitively.</p></li>
+<li><p><strong>Use WTP values to set price tiers that reflect actual consumer preferences</strong></p></li>
+</ul>
+</div></div>
 </section>
-
+<section id="managerial-implications-2" class="slide level2 smaller nonstretch scrollable">
+<h2>Managerial Implications (2)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>3.Communication Strategy</strong>: communicating value Brand and DOC/DOCG certification have some of the strongest positive effects in the MNL results.</p>
+<ul>
+<li><p>Sensitivity analysis shows that changes in brand have a strong impact on predicted choice</p></li>
+<li><p>Implications:</p>
+<ul>
+<li><p>Make brand identity and certification highly visible on the bottle.</p></li>
+<li><p>Use storytelling about origin, ageing, and quality standards to reinforce credibility.</p></li>
+<li><p>Highlight rosé and dry/semi-sweet styles</p></li>
+</ul></li>
+<li><p><strong>Focus communication on the signals that consumers value most.</strong></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>4.Segmentation</strong>: consumers do not value attributes equally</p>
+<p>Mixed logit results show systematic preference differences across individuals:</p>
+<ul>
+<li><p>Some are more price-sensitive Others focus on brand &amp; label</p></li>
+<li><p>Others care more about style (sweetness, alcohol, etc.)</p></li>
+</ul>
+<p>A single product is unlikely to appeal equally to all segments.</p>
+<p>Implications:</p>
+<ul>
+<li><p>Consider differentiated product lines (value vs premium).</p></li>
+<li><p>Tailor marketing messages to different preference profiles.</p></li>
+<li><p><strong>Recognizing preference differences helps design better products and more effective marketing.</strong></p></li>
+</ul>
+</div></div>
+</section></section>
 <section id="conclusion" class="title-slide slide level1 center">
 <h1>Conclusion</h1>
 
@@ -983,7 +1071,7 @@ Camilla Bonomo, Virginia Di Mauro, Sara Lammouchi, Luisa Porzio, Anthony Tricari
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/anthony-tricarico\.github\.io\/wine-consumer-preferences\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
