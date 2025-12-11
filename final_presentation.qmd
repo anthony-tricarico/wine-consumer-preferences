@@ -676,12 +676,22 @@ The baseline model revealed consistent coefficient patterns that form the quanti
 
 -   Quality Label: DOC/DOCG labels were clearly favored over No designation.
 
+## Distribution of Random Coefficients {.smaller .nonstretch .scrollable background-color="#640017"}
+
+```{r}
+par(mfrow = c(2,2))
+plot(rpar(m2_mixed, "Sweetnesssweet"))
+plot(rpar(m2_mixed, "PricePremium"))
+plot(rpar(m2_mixed, "Alcohol7 Perc"))
+plot(rpar(m2_mixed, "BrandsLa-Vis"))
+```
+
 ## Interpretation of Results {.smaller .nonstretch .scrollable background-color="#5A5E27"}
 
-::: panel-tabset
+:::::: panel-tabset
 ### Price Sensitivity {.smaller .nonstretch .scrollable}
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 -   Utilities are relative to: Cheap, Cavit, red, 5.5% alcohol, 1 year, dry, no designation
 
@@ -725,7 +735,7 @@ The baseline model revealed consistent coefficient patterns that form the quanti
 }
 ```
 :::
-:::
+:::::
 
 ### Willingness To Pay and Attribute Trade-offs
 
@@ -766,11 +776,11 @@ Behaviorally plausible pattern
 -   These are dimensions where respondents disagree the most
 
 -   Plausible: linked to budget constraints, trust in quality signals, flavour preferences
-:::
+::::::
 
 ## Managerial Implications (1) {.smaller .nonstretch .scrollable background-color="#EFEFC9"}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 **1.Optimal Product Profile**: which combination of attributes maximizes choice.
 
@@ -802,19 +812,18 @@ Behaviorally plausible pattern
 
 -   **Use WTP values to set price tiers that reflect actual consumer preferences**
 :::
-:::
+:::::
 
 ## Managerial Implications (2) {.smaller .nonstretch .scrollable background-color="#2F1B1A"}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 **3.Communication Strategy**: communicating value
 
 -   Brand and DOC/DOCG certification have some of the strongest positive effects in the MNL results.
 
-```{=html}
 <!-- -->
-```
+
 -   Sensitivity analysis shows that changes in brand have a strong impact on predicted choice
 
 -   Implications:
@@ -847,6 +856,6 @@ Implications:
 
 -   **Recognizing preference differences helps design better products and more effective marketing.**
 :::
-:::
+:::::
 
-# THANK YOU FOR YOUR ATTENTION! {.inverse data-background-gradient="linear-gradient(#5A5E27, #640017)"}
+# THANK YOU FOR YOUR ATTENTION! {data-background-gradient="linear-gradient(#5A5E27, #640017)"}
