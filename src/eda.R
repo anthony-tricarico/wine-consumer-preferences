@@ -327,6 +327,38 @@ cov2cor(cov.mlogit(m2_mixed_corr))
 # we can test significant relationships as well by estimating standard errors
 s <- summary(vcov(m2_mixed_corr, what = "rpar", type = "cor"))
 
+# extract estimated p-values related to statistical significance tests
+p_vals <- s[, "Pr(>|z|)"]
+
+# create proper data frame with information above
+stats_df <- data.frame(
+  Parameter = rownames(s),
+  Estimate = s[, "Estimate"],
+  Std_Error = s[, "Std. Error"],
+  Z_value = s[, "z-value"],
+  P_value = s[, "Pr(>|z|)"]
+)
+
+# create boolean column to identify statistically significant relationships
+# (i.e., those having a p value smaller than 5%)
+stats_df$Significant <- stats_df$P_value < 0.05
+# create a boolean column that is TRUE when cor is included in the parameter name
+stats_df$Iscorrelation <- stringr::str_like(stats_df$Parameter, "cor%")
+
+# extract only relevant rows (significant and relative to correlations)
+significant_cors <- stats_df %>% 
+  filter(Significant == T,
+         Iscorrelation == T)
+
+# create vector to be passed as an update to the model
+significant_cors <- stringr::str_remove(significant_cors$Parameter, "cor.")
+significant_cors <- stringr::str_split(significant_cors, pattern = ":")
+
+# remove duplicates
+vec_significant_corrs <- unique(unlist(significant_cors))
+# update model to include only significant correlations
+m2_mixed_significant_corrs <- update(m2_mixed_corr,
+                                     correlation = vec_significant_corrs)
 # The significant presence of random coefficients and their correlation 
 # can be further investigated using the ML tests, such as the ML ratio test
 (m2_vs_m2_mixed <- lrtest(m2, m2_mixed)) # Fixed effects vs. uncorrelated random effects
